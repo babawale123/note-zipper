@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require("mongoose")
 
 const connectDB = async(req,res) =>{
@@ -13,4 +14,19 @@ const connectDB = async(req,res) =>{
 	}
 }
 
+=======
+const mongoose = require('mongoose')
+
+const connectDB = async(req,res)=>{
+    try {
+            const connect = await mongoose.connect(process.env.DB_CONNECT,{
+            useNewUrlParser:true,
+            useUnifiedTopology:true,
+        });
+        console.log(`connection to mongoDb successful${connect.connection.host}`)
+    } catch (error) {
+       return res.status(500).json(error)
+    }
+}
+>>>>>>> 3bc12cc ('yy')
 module.exports = connectDB
